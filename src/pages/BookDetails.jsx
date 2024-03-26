@@ -1,17 +1,15 @@
 import { useLoaderData, useParams } from "react-router";
 import PropTypes from "prop-types";
-import { saveDataToLocalStorage } from "../utils/util";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { saveDataToLocalStorageByWish } from "../utils/util";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { saveDataToLocalStorageByRead } from "./../utils/util";
 
 const BookDetails = () => {
   const books = useLoaderData();
-  //   console.log(books);
   const { id } = useParams();
   console.log(id);
-  //   const idInt=parseInt(Id);
   const book = books.find((book) => book.bookId == id);
-  //   console.log(book);
   const {
     image,
     author,
@@ -26,12 +24,13 @@ const BookDetails = () => {
   } = book;
 
   const handleRead = () => {
-    saveDataToLocalStorage(book);
+    saveDataToLocalStorageByRead(book);
   };
 
   const handleWishlist = () => {
-    saveDataToLocalStorage(book);
+    saveDataToLocalStorageByWish(book);
   };
+
   return (
     <div className="my-10">
       <div className="lg: flex gap-10">
@@ -75,11 +74,9 @@ const BookDetails = () => {
             <p>Rating:</p>
             <p className="font-bold">{rating}</p>
           </div>
-          <div
-            onClick={() => handleRead()}
-            className="flex gap-2 my-6 items-center"
-          >
+          <div className="flex gap-2 my-6 items-center">
             <a
+              onClick={() => handleRead(book)}
               href="#_"
               className="rounded-md px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer border-2 font-medium border-indigo-600 text-indigo-600 text-white"
             >
@@ -88,12 +85,11 @@ const BookDetails = () => {
                 Read
               </span>
             </a>
-            <button
-              onClick={handleWishlist}
-              className="btn bg-blue-300 text-white font-bold"
-            >
-              Wishlist
-            </button>
+            <a href="#_" onClick={() => handleWishlist(book)}>
+              <button className="btn bg-blue-300 text-white font-bold">
+                Wishlist
+              </button>
+            </a>
           </div>
           <ToastContainer></ToastContainer>
         </div>
