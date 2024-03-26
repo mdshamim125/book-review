@@ -1,8 +1,9 @@
-
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import Nav from "../components/Nav";
 import { NavLink } from "react-router-dom";
+import ReadList from "../components/ReadList";
+import WishList from "../components/WishList";
 
 const ListedBooks = () => {
   const [tabIndex, setTabIndex] = useState(0);
@@ -59,11 +60,10 @@ const ListedBooks = () => {
         <div>
           {/* Render content for read list */}
           {/* For example: */}
-          <ul>
-            {readList.map((book) => (
-              <li key={book.id}>{book.bookName}</li>
-            ))}
-          </ul>
+
+          {readList.map((book) => (
+            <ReadList book={book} key={book.bookId}></ReadList>
+          ))}
         </div>
       )}
 
@@ -73,7 +73,7 @@ const ListedBooks = () => {
           {/* For example: */}
           <ul>
             {wishList.map((book) => (
-              <li key={book.id}>{book.bookName}</li>
+              <WishList book={book} key={book.bookId}></WishList>
             ))}
           </ul>
         </div>
