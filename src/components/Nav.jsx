@@ -7,7 +7,7 @@ const Nav = () => {
       <div className="">
         <NavLink
           to="/"
-          className="btn btn-ghost gap-0 text-secondary normal-case text-2xl"
+          className="btn btn-ghost gap-0 font-bold  text-3xl"
         >
           Book Vibe
         </NavLink>
