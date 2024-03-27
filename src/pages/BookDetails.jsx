@@ -33,11 +33,11 @@ const BookDetails = () => {
 
   return (
     <div className="my-10">
-      <div className="lg: flex gap-10">
-        <div className="bg-[#1313130D] w-1/2">
-          <img src={image} className="w-full h-[500px]" alt="" />
+      <div className="lg:flex gap-10">
+        <div className="bg-[#1313130D] lg:w-1/2 m-6">
+          <img src={image} className="w-full lg:h-[500px]" alt="" />
         </div>
-        <div className="w-1/2">
+        <div className="lg:w-1/2 m-6">
           <h2 className="text-2xl font-bold">{bookName}</h2>
           <p className="text-xl my-4">By: {author}</p>
           <hr />
