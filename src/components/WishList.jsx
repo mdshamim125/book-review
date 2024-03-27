@@ -2,6 +2,7 @@ import { CiLocationOn } from "react-icons/ci";
 import { IoIosPeople } from "react-icons/io";
 import { MdInsertPageBreak } from "react-icons/md";
 import PropTypes from "prop-types";
+import { NavLink } from "react-router-dom";
 
 const WishList = ({ book }) => {
   const {
@@ -64,9 +65,11 @@ const WishList = ({ book }) => {
                 <p className="bg-[#1313130D] text-red-400 text-xl p-2 rounded-xl">
                   Rating: {rating}
                 </p>
-                <button className="btn bg-green-600 text-white text-xl">
-                  Listen
-                </button>
+                <NavLink to={`/book/${book.bookId}`}>
+                  <button className="btn bg-green-600 text-white text-xl">
+                    View Details
+                  </button>
+                </NavLink>
               </div>
             </div>
           </div>

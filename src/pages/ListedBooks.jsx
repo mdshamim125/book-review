@@ -1,32 +1,38 @@
 import { useEffect, useState } from "react";
-import PropTypes from "prop-types";
-import Nav from "../components/Nav";
 import { NavLink } from "react-router-dom";
 import ReadList from "../components/ReadList";
 import WishList from "../components/WishList";
+import { sortList } from "../utils/sort";
 
 const ListedBooks = () => {
   const [tabIndex, setTabIndex] = useState(0);
 
-  // Define state variables for read and wish lists
   const [readList, setReadList] = useState([]);
   const [wishList, setWishList] = useState([]);
 
-  // Fetch data for read list
   useEffect(() => {
     const getReadBooks = JSON.parse(localStorage.getItem("read")) || [];
     setReadList(getReadBooks);
   }, []);
 
-  // Fetch data for wish list
   useEffect(() => {
     const getWishBooks = JSON.parse(localStorage.getItem("wish")) || [];
     setWishList(getWishBooks);
   }, []);
 
-  // Define a function to handle tab click
   const handleTabClick = (index) => {
     setTabIndex(index);
+  };
+
+
+  const handleSortReadList = (field) => {
+    const sortedReadList = sortList(readList, field);
+    setReadList(sortedReadList);
+  };
+
+  const handleSortWishList = (field) => {
+    const sortedWishList = sortList(wishList, field);
+    setWishList(sortedWishList);
   };
 
   return (
@@ -34,6 +40,50 @@ const ListedBooks = () => {
       <h1 className="font-bold text-3xl text-center p-6 rounded-lg my-8 bg-[#1313130D]">
         Books
       </h1>
+
+      <div className="flex justify-center">
+        <ul className="menu my-6 bg-green-600 text-white font-bold  w-40 rounded-box">
+          <li>
+            <details>
+              <summary>Sort By</summary>
+              <ul>
+                <li>
+                  <a
+                    onClick={() => {
+                      handleSortReadList("totalPages");
+                      handleSortWishList("totalPages");
+                    }}
+                  >
+                    Page No
+                  </a>
+                </li>
+                <li>
+                  <a
+                    onClick={() => {
+                      handleSortReadList("bookName");
+                      handleSortWishList("bookName");
+                    }}
+                  >
+                    Book Name
+                  </a>
+                </li>
+                <li>
+                  <a
+                    onClick={() => {
+                      handleSortReadList("rating");
+                      handleSortWishList("rating");
+                    }}
+                  >
+                    Rating
+                  </a>
+                </li>
+                
+              </ul>
+            </details>
+          </li>
+        </ul>
+      </div>
+
       <div className="flex">
         <NavLink
           to="read-list"
