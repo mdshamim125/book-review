@@ -4,7 +4,7 @@ Welcome to Book Vibe! Your ultimate destination for all things books.
 
 ## Live Site
 
-[Visit BookHub]()
+[Visit BookHub](https://66045c1bc8196b2e409ade2b--magnificent-phoenix-f96afd.netlify.app/)
 
 ## Features and Characteristics
 
