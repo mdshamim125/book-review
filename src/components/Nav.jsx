@@ -57,6 +57,26 @@ const Nav = () => {
               >
                 Page to Read
               </NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-green-500 lg:text-xl border-green-400 font-bold border rounded-md p-1 mx-4"
+                    : "lg:text-xl mx-4"
+                }
+                to="/author"
+              >
+                Author
+              </NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-green-500 lg:text-xl border-green-400 font-bold border rounded-md p-1 mx-4"
+                    : "lg:text-xl mx-4"
+                }
+                to="/about-us"
+              >
+                About Us
+              </NavLink>
             </ul>
           </div>
           <NavLink to="/" className="btn btn-ghost font-bold text-3xl">
@@ -95,6 +115,26 @@ const Nav = () => {
               to="/page-read"
             >
               Page to Read
+            </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? "text-green-500 lg:text-xl border-green-400 font-bold border rounded-md p-1 mx-4"
+                  : "lg:text-xl mx-4"
+              }
+              to="/author"
+            >
+              Author
+            </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? "text-green-500 lg:text-xl border-green-400 font-bold border rounded-md p-1 mx-4"
+                  : "lg:text-xl mx-4"
+              }
+              to="/about-us"
+            >
+              About Us
             </NavLink>
           </ul>
         </div>
