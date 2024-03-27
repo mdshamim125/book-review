@@ -2,69 +2,120 @@ import { NavLink } from "react-router-dom";
 
 const Nav = () => {
   return (
-    <div className="flex justify-between items-center">
-      <div className="">
-        <NavLink
-          to="/"
-          className="btn btn-ghost gap-0 font-bold text-lg lg:text-3xl"
-        >
-          Book Vibe
-        </NavLink>
-      </div>
-      <div className="flex-none gap-2">
-        <ul className="menu menu-horizontal  gap-6">
-          <NavLink
-            className={({ isActive }) =>
-              isActive
-                ? "text-green-500 lg:text-xl border-green-400 font-bold border rounded-md p-1"
-                : "lg:text-xl"
-            }
-            to="/"
-          >
-            Home
-          </NavLink>
+    <div>
+      <div className="navbar">
+        <div className="navbar-start">
+          <div className="dropdown">
+            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </div>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-green-500 lg:text-xl border-green-400 font-bold border rounded-md p-1 mx-4"
+                    : "lg:text-xl mx-4"
+                }
+                to="/"
+              >
+                Home
+              </NavLink>
 
-          <NavLink
-            className={({ isActive }) =>
-              isActive
-                ? "text-green-500 lg:text-xl border-green-400 font-bold border rounded-md p-1"
-                : "lg:text-xl"
-            }
-            to="/listed-books"
-          >
-            Listed Books
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-green-500 lg:text-xl border-green-400 font-bold border rounded-md p-1 mx-4"
+                    : "lg:text-xl mx-4"
+                }
+                to="/listed-books"
+              >
+                Listed Books
+              </NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-green-500 lg:text-xl border-green-400 font-bold border rounded-md p-1 mx-4"
+                    : "lg:text-xl mx-4"
+                }
+                to="/page-read"
+              >
+                Page to Read
+              </NavLink>
+            </ul>
+          </div>
+          <NavLink to="/" className="btn btn-ghost font-bold text-3xl">
+            Book Vibe
           </NavLink>
-          <NavLink
-            className={({ isActive }) =>
-              isActive
-                ? "text-green-500 lg:text-xl border-green-400 font-bold border rounded-md p-1"
-                : "lg:text-xl"
-            }
-            to="/page-read"
-          >
-            Page to Read
-          </NavLink>
-        </ul>
-      </div>
-      <div className="lg:flex gap-4 hidden">
-        <a
-          href="#_"
-          className="inline-flex items-center justify-center lg:px-4 lg:py-2 text-base lg:font-medium leading-6 text-white whitespace-no-wrap bg-green-600 border border-blue-700 rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-          data-rounded="rounded-md"
-          data-primary="blue-600"
-          data-primary-reset="{}"
-        >
-          Sign Up
-        </a>
-        <a
-          href="#_"
-          className="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-blue-400 border border-blue-700 rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-          data-rounded="rounded-md"
-          data-primary="blue-600"
-          data-primary-reset="{}"
-        >
-          Sign In
-        </a>
+        </div>
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal px-1">
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? "text-green-500 lg:text-xl border-green-400 font-bold border rounded-md p-1 mx-4"
+                  : "lg:text-xl mx-4"
+              }
+              to="/"
+            >
+              Home
+            </NavLink>
+
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? "text-green-500 lg:text-xl border-green-400 font-bold border rounded-md p-1 mx-4"
+                  : "lg:text-xl mx-4"
+              }
+              to="/listed-books"
+            >
+              Listed Books
+            </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? "text-green-500 lg:text-xl border-green-400 font-bold border rounded-md p-1 mx-4"
+                  : "lg:text-xl mx-4"
+              }
+              to="/page-read"
+            >
+              Page to Read
+            </NavLink>
+          </ul>
+        </div>
+        <div className="navbar-end">
+          <div className="hidden lg:flex gap-4">
+            <a
+              href="#_"
+              className="relative rounded px-5 py-2.5 overflow-hidden group bg-green-500  hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300 font-bold"
+            >
+              <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+              <span className="relative">Sign In</span>
+            </a>
+            <a
+              href="#_"
+              className="relative rounded px-5 py-2.5 overflow-hidden group bg-blue-500  hover:bg-gradient-to-r hover:from-green-500 hover:to-green-400 text-white hover:ring-2 hover:ring-offset-2 hover:ring-green-400 transition-all ease-out duration-300 font-bold"
+            >
+              <span className="absolute right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+              <span className="relative">Sign Up</span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );
